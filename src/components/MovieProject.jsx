@@ -1,24 +1,27 @@
 import React, { useState } from "react";
+import MovieInput from "./MovieInput";
 
 const MovieProject = () => {
-  const [movieData, setMovieData] = useState("");
-  const [ratingData, setRatingData] = useState("");
-
-  const movieName = (e) => {
-    setMovieData(e.target.value);
-    console.log(setMovieData);
-  };
-
-  const rating = (e) => {
-    setRatingData(e.target.value);
+  const [data, setData] = useState([]);
+  const inputData = (input) => {
+    setData([...data, input]);
+    console.log("input", input);
   };
   return (
-    <div>
-      <input onChange={movieName} type="text" placeholder="moviename" />
-      <input onChange={rating} type="text" placeholder="Rating" />
-      <h1>{movieData}</h1>
-      <h1>{ratingData}</h1>
-    </div>
+    <>
+      <div className="Input-1">
+        <MovieInput inputData={inputData} />
+      </div>
+      <div className="output">
+        {data.map((elements) => {
+          return (
+            <div className="output1">
+              <h2>{elements}</h2>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
