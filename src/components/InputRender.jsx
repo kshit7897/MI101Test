@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./InputRender.css";
 
 const InputRender = () => {
   const [name, setName] = useState("");
@@ -32,7 +33,8 @@ const InputRender = () => {
   };
 
   return (
-    <div>
+    <div className="main-div">
+      <h1>Apna Movie Channel</h1>
       <form onSubmit={handleSubmitForm}>
         <input
           onChange={handleMovieName}
@@ -44,9 +46,10 @@ const InputRender = () => {
         {/* <input onClick={handleSubmitForm} type="button" value="Submit" /> */}
         <button>Submit</button>
       </form>
-      <h1>{formData.name}</h1>
+
+      <h1 className="head">{formData.name}</h1>
       <img src={formData.url} alt="" />
-      <h1>{formData.rating}</h1>
+      <h1 className="rate">{formData.rating}</h1>
     </div>
   );
 };
